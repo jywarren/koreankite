@@ -3,3 +3,5 @@ An archive of https://koreankite.tistory.com, an incredible comprehensive docume
 Please contact Jeffrey Yoo Warren jeff@unterbahn.com / jywarren@gmail.com if you know more! 
 
 Viewable at: https://jywarren.github.io/koreankite
+
+Also see videos at https://www.youtube.com/@MrPeterNam/videos
