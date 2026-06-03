@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<link rel="stylesheet" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/css/mobile/T.m.css">
+	<link rel="stylesheet" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/css/mobile/T.m.blog.issue.css">
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/jquery/jquery-1.11.0.min.js"></script>
+	<![endif]-->
+	<!--[if gte IE 9]><!-->
+	<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/jquery/jquery-2.1.0.min.js"></script>
+	<!--<![endif]-->
+	<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/jquery/plugin/jquery.cookie-1.4.0.min.js"></script>
+	
+    <link rel="stylesheet" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/css/mobile/T.m.blog.css">
+<link rel="stylesheet" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/css/mobile/skin/skin_04/style_h.css">
+<style type="text/css">
+						#daumHead { background: #d4f4fa !important; }
+			
+		#daumHead h1 a { color: #000000; }
+		
+		#header { height: 40.0px; }
+	#header h1 a { line-height: 40.0px; }
+		
+		
+						
+				#menu .blog_menu { background: transparent !important; }
+				
+		.em_color { color: #47c83e !important; }
+	.em_color_bg { background: none !important; background-color: #47c83e !important; }
+	.em_color_bd { border-color: #47c83e !important; }
+	</style>
+	<title>댓글 목록 :: 댓글 쓰기 :: All about Korean kite</title>
+</head>
+<body>
+	<div id="daumWrap" class="other">
+	<div id="dimmed_body" class="dimmed_layer"></div>
+	<div id="serviceHead">
+		<div class="head_top">
+			<h1><a href="http://www.tistory.com/m" id="daumServiceLogo">Tistory</a></h1>
+			<div class="right">
+				<a href="javascript:;" class="btn_search" id="btnTotalSearch"><span class="img_comm">검색</span></a>
+				<a href="http://www.tistory.com/m/auth" class="btn_add"><span class="img_comm">링크추가</span></a>
+				<a href="http://www.tistory.com/m/auth?requestURI=http%3A%2F%2Fkoreankite.tistory.com%2Fm%2Fpost%2F121%2Fcomment" class="btn_login"><span class="img_comm">로그인</span></a>
+			</div>
+		</div>
+		<div class="layer_my" id="myLayer">
+		<ul id="myTabMenu" class="tab_link">
+		<li class="on"><a href="javascript:;" class="myBlog link_tab fst">내블로그</a></li>
+		<li><a href="javascript:;" class="myLink link_tab">링크</a></li>
+	</ul>
+	<div class="my_blog">
+		<strong class="screen_out">내블로그</strong>
+		<ul class="list_blog">
+					</ul>
+	</div>
+	<div class="my_link hide">
+		<strong class="screen_out">링크</strong>
+		<div class="choice_link">
+			<label for="myLinkBlogSelector" class="screen_out">블로그선택</label>
+			<select class="opt_comm" id="myLinkBlogSelector">
+							</select>
+			<ul id="followLinkTab" class="tab_sort">
+				<li class="on"><a href="javascript:;" class="link_tab linkFollowing fst">내가 링크한</a></li>
+				<li><a href="javascript:;" class="link_tab linkFollowers">나를 링크한</a></li>
+			</ul>
+		</div>
+		<strong class="screen_out">내가 링크한</strong>
+		<div id="followingLinkLayer"></div>
+		<div id="followersLinkLayer" class="hide"></div>
+	</div>
+</div>
+<div id="addLinkLayer" class="tistory_layer hide" style="top:130px">
+	<form id="addLinkForm" action="/m/link/add.json">
+		<input type="hidden" name="linkBlogId" value="921615">
+		<div class="inner_tistory_layer">
+			<div class="layer_head">
+				<strong class="">링크추가</strong>
+			</div>
+			<div class="layer_body">
+				<p class="txt_add"><em class="txt_emph">All about Korean kite</em>블로그를<br> 링크에 추가하시겠습니까?</p>
+				<div class="opt_comm">
+					<select id="addLinkBlogSelector" name="blogId" class="opt_select" style="width:136px">
+											</select>
+					<span class="img_comm"></span>
+				</div>
+				<div class="opt_comm">
+					<select id="addLinkBlogGroupSelector" name="groupId" class="opt_select" style="width:96px"></select>
+					<span class="img_comm"></span>
+				</div>
+			</div>
+			<div class="layer_foot">
+				<div class="wrap_btn">
+					<button type="button" onclick="T.m.my.addLink(); return false;" class="btn_layer btn_conform">확인</button>
+					<a href="javascript:;" onclick="T.m.my.hideAddLinkLayer(); return false;" class="btn_layer btn_cancel">취소</a>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+	</div>
+	<div id="adamHeader"></div>
+	
+	<div id="daumContent" class="viewer">
+		<input type="hidden" id="view_original_news_id">
+		<div class="wrap_posting">
+			<div class="area_tit area_tit_no_comment">
+				<h2><a href="/m/post/121">Lee,Jung-Hwa(朝鮮語學會1881~?), 연의 종류와 용어, 1938</a></h2>
+				<span class="owner_info">
+					<span class="comment_owner_info">
+						대한연협회 Peter, Nam												<span class="txt_bar">|</span>
+						<span class="category_info">
+							<a href="/m/post?categoryId=588246">Old documents</a>
+						</span>
+																		<span class="datetime">2014/12/05 06:59</span>
+					</span>
+				</span>
+				<a class="round_button_view comment_view_post" href="/m/post/121"><span>글보기</span></a>
+			</div>
+						<div class="area_content">
+				<ul class="wrap_comments">
+											<li class="no_comment">
+							<span class="no_comment_icon"></span>
+							<span class="no_comment_desc">아직 댓글이 없습니다.</span>
+						</li>
+									</ul>
+			</div>
+			<div id="wrapAddCommentForm" class="area_comment_write wrap_reply wrap_reply_form">
+				<h3>댓글쓰기</h3>
+				<span class="btn_webtoapp webtoapp_comment_view btn_webtoapp_comment" data-blogid="921615" data-postid="121" data-comment="Y">
+					<span class="ico_webtoapp ico_tistory"></span>앱으로 쓰고 알림 받기
+				</span>
+				<form id="addCommentForm" method="post" action="/m/comment/save.json" onsubmit="T.m.comment.save(this); return false">
+					<fieldset>
+						<input type="hidden" name="postId" value="121">
+						<input type="hidden" name="parentId" value="0">
+						<input type="hidden" name="stickerId" id="stickerId">
+
+						<div class="tf_comment" id="tf_comment">
+							<textarea class="comment_input_contents" name="content"></textarea>
+														<a href="javascript:;" class="img_comm ico_sticker" onclick="Sticker.showSticker('tf_comment')">스티커 추가</a>
+													</div>
+
+												<input class="comment_input_name" type="text" name="name" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="이름" value="">
+						<input class="comment_input_password" type="password" maxlength="8" name="password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="비밀번호">
+						<input class="comment_input_homepage" onfocus="T.m.comment.focusHomepage(this);" type="text" name="homepage" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="홈페이지 주소(선택입력)" value="">
+												<label for="wrtHidden" class="comment_label_secret">비밀 글로 등록</label><input class="comment_input_secret" type="checkbox" id="wrtHidden" name="secret" value="1">
+											</fieldset>
+					<button class="round_button_view comment_cancel" onclick="T.m.comment.cancel(this); return false"><span>취소</span></button>
+					<button type="submit" class="round_button_view comment_add"><span>확인</span></button>
+				</form>
+			</div>
+						<div id="sticker_layer" class="sticker_layer" style="top:500px">
+				<input type="hidden" name="commentElementId" id="commentElementId">
+				<div class="inner_sticker_layer">
+					<div class="layer_head">
+						<h1 class="tit_sticker">스티커 댓글</h1>
+						<h2 class="screen_out">스티커 선택 메뉴</h2>
+						<div class="sticker_choice">
+							<div class="wrap_choice choice_next">
+								<input type="hidden" name="activePackage" id="activePackage" value="50">
+								<input type="hidden" name="cp" id="cp" value="1">
+								<input type="hidden" name="tp" id="tp" value="4">
+								<input type="hidden" name="csp" id="csp" value="1">
+								<input type="hidden" name="cstp" id="cstp" value="3">
+		
+								<ul class="tab_sticker">
+																		<li class="fst on" id="package50">
+										<a href="javascript:;" class="tab_link tab_salute"><img src="http://mypi1.daumcdn.net/mimg/mypeople/sticker/top_img/and_ico_sticker_50.png" width="32" height="30" alt="" onclick="Sticker.getSticker(50, 1)"></a>
+									</li>
+																		<li class="fst" id="package45">
+										<a href="javascript:;" class="tab_link tab_salute"><img src="http://mypi1.daumcdn.net/mimg/mypeople/sticker/top_img/and_ico_sticker_45.png" width="32" height="30" alt="" onclick="Sticker.getSticker(45, 1)"></a>
+									</li>
+																		<li class="fst" id="package55">
+										<a href="javascript:;" class="tab_link tab_salute"><img src="http://mypi1.daumcdn.net/mimg/mypeople/sticker/top_img/and_ico_sticker_55.png" width="32" height="30" alt="" onclick="Sticker.getSticker(55, 1)"></a>
+									</li>
+																		<li class="fst" id="package46">
+										<a href="javascript:;" class="tab_link tab_salute"><img src="http://mypi1.daumcdn.net/mimg/mypeople/sticker/top_img/and_ico_sticker_46.png" width="32" height="30" alt="" onclick="Sticker.getSticker(46, 1)"></a>
+									</li>
+																		<li class="fst" id="package49">
+										<a href="javascript:;" class="tab_link tab_salute"><img src="http://mypi1.daumcdn.net/mimg/mypeople/sticker/top_img/and_ico_sticker_49.png" width="32" height="30" alt="" onclick="Sticker.getSticker(49, 1)"></a>
+									</li>
+																		<li class="fst" id="package47">
+										<a href="javascript:;" class="tab_link tab_salute"><img src="http://mypi1.daumcdn.net/mimg/mypeople/sticker/top_img/and_ico_sticker_47.png" width="32" height="30" alt="" onclick="Sticker.getSticker(47, 1)"></a>
+									</li>
+																	</ul>
+							</div>
+							<a href="javascript:;" class="btn_next package_next"><span class="img_comm">다음</span></a>
+						</div>
+					</div>
+					<div class="layer_body">
+						<h3 class="screen_out">기본 스티커 목록</h3>
+						<form id="stickerForm">
+							<fieldset>
+								<legend class="screen_out">스티커 선택 박스</legend>
+								<input type="hidden" class="urlPrefix" value="http://i1.daumcdn.net/air21.sticker/pc/still_img/">
+								<ul class="list_sticker">
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1388')">
+											<label for="iSticker1388" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1388.png" class="thumb_img" alt="" width="46" height="46" id="sticker1388">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1389')">
+											<label for="iSticker1389" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1389.png" class="thumb_img" alt="" width="46" height="46" id="sticker1389">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1390')">
+											<label for="iSticker1390" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1390.png" class="thumb_img" alt="" width="46" height="46" id="sticker1390">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1391')">
+											<label for="iSticker1391" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1391.png" class="thumb_img" alt="" width="46" height="46" id="sticker1391">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1392')">
+											<label for="iSticker1392" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1392.png" class="thumb_img" alt="" width="46" height="46" id="sticker1392">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1393')">
+											<label for="iSticker1393" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1393.png" class="thumb_img" alt="" width="46" height="46" id="sticker1393">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1394')">
+											<label for="iSticker1394" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1394.png" class="thumb_img" alt="" width="46" height="46" id="sticker1394">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1395')">
+											<label for="iSticker1395" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1395.png" class="thumb_img" alt="" width="46" height="46" id="sticker1395">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1396')">
+											<label for="iSticker1396" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1396.png" class="thumb_img" alt="" width="46" height="46" id="sticker1396">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1397')">
+											<label for="iSticker1397" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1397.png" class="thumb_img" alt="" width="46" height="46" id="sticker1397">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1398')">
+											<label for="iSticker1398" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1398.png" class="thumb_img" alt="" width="46" height="46" id="sticker1398">
+											</label>
+										</a>
+									</li>
+																		<li>
+										<a href="javascript:;" class="thumb" onclick="Sticker.attachSticker('1399')">
+											<label for="iSticker1399" class="wrap_thumb">
+												<img src="http://i1.daumcdn.net/air21.sticker/pc/still_img/sticker_1399.png" class="thumb_img" alt="" width="46" height="46" id="sticker1399">
+											</label>
+										</a>
+									</li>
+																	</ul>
+								<div class="paging_sticker">
+									<a href="javascript:;" class="btn_page btn_prev sticker_prev"><span class="img_comm">이전</span></a>
+									<span class="inner_paging sticker_paging">
+										<span class="screen_out">현재페이지</span>
+										<em class="num_page">1</em>
+																				<span class="num_page">2</span>
+																				<span class="num_page">3</span>
+																			</span>
+									<a href="javascript:;" class="btn_page btn_next sticker_next"><span class="img_comm on">다음</span></a>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+					<div class="layer_foot">
+						<a href="javascript:;" class="btn_close" onclick="Sticker.hideSticker()"><span class="img_comm">닫기</span></a>
+					</div>
+				</div>
+			</div>
+			
+						
+<div id="pagingNav">
+	</div>		</div>
+	</div>
+
+	<div id="footerContent">
+	
+	
+</div>
+
+<div id="hottrendsContainer"></div>
+<div id="adamFooter"></div>
+<div id="footContent" class="foot_content" data-isdaumapp="false"></div>	<div id="daumFoot">
+		<ul>
+			<li><a href="http://m.daum.net/">Daum</a></li>
+			<li><a href="http://www.tistory.com/m" class="btn_tistory btn_check_upload">티스토리</a></li>
+			<li id="daumMinidaum"></li>
+			<li><a href="/121" onclick="T.m.blog.goPcPage(this.href, window.location.hostname); return false" id="goPC" class="pc btn_check_upload">PC화면</a></li>
+		</ul>
+		<address>ⓒ Kakao Corp.</address>
+	</div>
+	<hr>
+	<div id="daumSearchBack"></div>
+	<div id="daumTotalSearchLayer" class="wrap_schall hide">
+		<div class="d_schall">
+			<form id="daumTotalSearchForm" class="inner_schall" action="http://www.tistory.com/m/search" method="get">
+				<fieldset>
+					<legend class="screen_out">검색어 입력폼</legend>
+					<div class="box_search">
+						<input type="search" id="q" name="keyword" class="tf_keyword">
+						<button id="btn_reset_totalsearch" type="button" class="btn_sch btn_reset"><span class="img_g ico_del">검색어 지우기</span></button>
+						<button type="submit" id="btn_search_totalsearch" class="btn_search">검색</button>
+						<button type="button" id="btn_close_totalsearch" class="btn_close">취소</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<div id="suggest_layer" class="suggest-layer-holder d_sgt"></div>
+	</div>
+</div>
+<input id="ttUAinfoValue" type="hidden" value="{&quot;app&quot;:{&quot;isApp&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;version&quot;:&quot;&quot;},&quot;browser&quot;:{&quot;name&quot;:&quot;none&quot;,&quot;version&quot;:&quot;0&quot;,&quot;major&quot;:&quot;0&quot;,&quot;minor&quot;:&quot;0&quot;,&quot;patch&quot;:&quot;0&quot;},&quot;os&quot;:{&quot;name&quot;:&quot;unknown&quot;,&quot;version&quot;:&quot;0&quot;,&quot;major&quot;:&quot;0&quot;,&quot;minor&quot;:&quot;0&quot;,&quot;patch&quot;:&quot;0&quot;,&quot;windows&quot;:false,&quot;android&quot;:false,&quot;ios&quot;:false,&quot;mac&quot;:false,&quot;linux&quot;:false,&quot;blackberry&quot;:false,&quot;bada&quot;:false,&quot;polaris&quot;:false,&quot;webos&quot;:false},&quot;platform&quot;:&quot;unknown&quot;,&quot;ua&quot;:&quot;ia_archiver&quot;,&quot;isDaumApp&quot;:false,&quot;isTistoryApp&quot;:false,&quot;isSafari&quot;:false,&quot;isIphone&quot;:false,&quot;isIpod&quot;:false,&quot;isIpad&quot;:false,&quot;isOpera&quot;:false,&quot;isDolfin&quot;:false,&quot;isAndroid&quot;:false,&quot;isBlackberry&quot;:false,&quot;isIos&quot;:false,&quot;isLinux&quot;:false,&quot;isMac&quot;:false,&quot;isWindows&quot;:false,&quot;isBada&quot;:false,&quot;isPolaris&quot;:false,&quot;isWebos&quot;:false,&quot;isPc&quot;:false,&quot;isMobile&quot;:false,&quot;isWebkit&quot;:false}" />
+<script type="text/javascript" src="http://dmaps.daum.net/map_js_init/plusmap.mobile.view.js"></script>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/suggest/suggest-1.3.11.min.js"></script>
+<script type="text/javascript" src="//m1.daumcdn.net/svc/original/U03/cssjs/coco/coco-1.0.25.min.js"></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U0301/cssjs/JSON-js/fc535e9cc8/json2.min.js"></script>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/sizzle/sizzle-1.10.7.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/slide/slide-1.2.13.standalone.min.js"></script>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/userAgent/userAgent-1.0.14.min.js"></script>
+<script type="text/javascript" src="//m1.daumcdn.net/svc/original/U03/cssjs/socialshare/socialshare_standalone-1.7.6.min.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/T.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/T.util.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/T.m.blog.js"></script>
+<script type="text/javascript" src="http://dmaps.daum.net/map_js_init/plusmap.mobile.view.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/ext/transCoordinator.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/T.m.my.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/T.m.component.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/ext/handlebars-v1.3.0.runtime.min.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/templates/handlebars.helper.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/templates/handlebars.templates.js"></script>
+<script type="text/javascript" src="http://go.daum.net/bin/minidaum.cgi?minidaum_mobile=y&amp;js_url=minidaumMobile2011&amp;viewport=320&amp;tracker=off" charset="euc-kr"></script>
+<script type="text/javascript">
+	plusmap.load( function() {
+		var option = {}, padding = 0, contentArea = jQuery('#daumContent .area_content');
+		//현재 모바일 스킨의 본문 형태는 2가지만 존재
+		if(jQuery("#daumContent").hasClass("box_viewer")){
+			padding = 8;
+		} else {
+			padding = 24;
+		}
+		var width = contentArea.width() - padding;
+		if(width < 296){
+			option = {"width" : width};
+		}
+		plusmap.init(jQuery('.map_attach')).render(option);
+	});
+</script>
+<script type="text/javascript">
+	T.m.component.daumLike.init("hottrendsContainer");
+
+		footcontentType = "none";
+	
+	coco.configure = {
+
+		suggest: {
+			formEl: 'daumTotalSearchForm',
+			layerEl: 'daumTotalSearchLayer',
+			searchURL: 'http://www.tistory.com/m/search',
+			enableLatestKeyword : false,
+			suggestNumber: 10,
+		},
+
+		footcontent: {
+			id: "footContent",
+			type: footcontentType,
+			service: "tistory",
+			// for install
+			scheme: "tistoryapp://open",
+			intent: "intent://open#Intent;scheme=tistoryapp;package=net.daum.android.tistoryapp;end",
+			appName: "티스토리앱",
+			appId: "1",
+//			appImgUrl: "http://m1.daumcdn.net/svc/image/U03/common_icon/5379D8B60217A60005",
+			googleplay: "market://details?id=net.daum.android.tistoryapp",
+			appstore: "https://itunes.apple.com/app/id906304982?mt=8",
+			// for add homescreen
+			homeScreenName: "티스토리",
+			homeScreenImgUrl: "",
+			homeScreenService: "tistory"
+		}
+	};
+	coco.start();
+
+		function makeLogin() {
+		var loginBtn = jQuery('#daumMinidaum .minidaum_login')[0];
+		if(loginBtn){
+			loginBtn.href="http://www.tistory.com/m/auth/index?requestURI=http%3A%2F%2Fkoreankite.tistory.com%2Fm%2Fpost%2F121%2Fcomment";
+		} else {
+			setTimeout(makeLogin, 200);
+		}
+	}
+	makeLogin();
+		//]]>
+</script>
+<script type="text/javascript">
+	window.roosevelt_params_queue = window.roosevelt_params_queue || [];
+	window.roosevelt_params_queue.push({
+		channel_id: "dk", channel_label: "tistory.m"
+	});
+</script>
+<script type="text/javascript" src="//adimg.daumcdn.net/rt/dk_bt/roosevelt_dk_bt.js" async></script>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+	var _tiq = 'undefined' !== typeof _tiq ? _tiq : [];
+
+	_tiq.push(['__setSection', 'BLOG']);
+	_tiq.push(['__setPageName', 'Default']);
+	_tiq.push(['__setParam', 'puid', 1446095614468]);
+	_tiq.push(['__setParam', 'svcdomain', 'm.tistory.com']);
+	_tiq.push(['__trackPageview', {
+		svcdomain: 'm.tistory.com',
+		title: document.title,
+		referer: '',
+		category: '',
+		articleno: '',
+		plink: 'http://koreankite.tistory.com/',
+		date: '',
+		author: 'koreankite',
+		isauthor: 'N',
+		ishidden: '',
+		comments: '',
+		param1: '',
+		param2: 'e',
+		param3: 'N'
+			}]);
+	_tiq.push(['__clickOn']);
+
+	(function(d) {
+		var se = d.createElement('script'); se.type = 'text/javascript'; se.async = true;
+		se.src = '//m1.daumcdn.net/tiara/js/td.min.js?v=5206';
+		var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+	})(document);
+//]]>
+</script>
+
+	<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/ext/sticker.js"></script>
+
+</body>
+</html>

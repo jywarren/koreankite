@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<link rel="stylesheet" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/css/mobile/T.m.css">
+	<link rel="stylesheet" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/css/mobile/T.m.blog.issue.css">
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/jquery/jquery-1.11.0.min.js"></script>
+	<![endif]-->
+	<!--[if gte IE 9]><!-->
+	<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/jquery/jquery-2.1.0.min.js"></script>
+	<!--<![endif]-->
+	<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/jquery/plugin/jquery.cookie-1.4.0.min.js"></script>
+	
+    <link rel="stylesheet" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/css/mobile/T.m.blog.css">
+<link rel="stylesheet" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/css/mobile/skin/skin_04/style_h.css">
+<style type="text/css">
+						#daumHead { background: #d4f4fa !important; }
+			
+		#daumHead h1 a { color: #000000; }
+		
+		#header { height: 40.0px; }
+	#header h1 a { line-height: 40.0px; }
+		
+		
+						
+				#menu .blog_menu { background: transparent !important; }
+				
+		.em_color { color: #47c83e !important; }
+	.em_color_bg { background: none !important; background-color: #47c83e !important; }
+	.em_color_bd { border-color: #47c83e !important; }
+	</style>
+	<title>글 목록 :: All about Korean kite</title>
+</head>
+<body>
+		<div id="daumWrap" class="other">
+	<div id="dimmed_body" class="dimmed_layer"></div>
+	<div id="serviceHead">
+		<div class="head_top">
+			<h1><a href="http://www.tistory.com/m" id="daumServiceLogo">Tistory</a></h1>
+			<div class="right">
+				<a href="javascript:;" class="btn_search" id="btnTotalSearch"><span class="img_comm">검색</span></a>
+				<a href="http://www.tistory.com/m/auth" class="btn_add"><span class="img_comm">링크추가</span></a>
+				<a href="http://www.tistory.com/m/auth?requestURI=http%3A%2F%2Fkoreankite.tistory.com%2Fm%2Fpost%3FcategoryId%3D588246" class="btn_login"><span class="img_comm">로그인</span></a>
+			</div>
+		</div>
+		<div class="layer_my" id="myLayer">
+		<ul id="myTabMenu" class="tab_link">
+		<li class="on"><a href="javascript:;" class="myBlog link_tab fst">내블로그</a></li>
+		<li><a href="javascript:;" class="myLink link_tab">링크</a></li>
+	</ul>
+	<div class="my_blog">
+		<strong class="screen_out">내블로그</strong>
+		<ul class="list_blog">
+					</ul>
+	</div>
+	<div class="my_link hide">
+		<strong class="screen_out">링크</strong>
+		<div class="choice_link">
+			<label for="myLinkBlogSelector" class="screen_out">블로그선택</label>
+			<select class="opt_comm" id="myLinkBlogSelector">
+							</select>
+			<ul id="followLinkTab" class="tab_sort">
+				<li class="on"><a href="javascript:;" class="link_tab linkFollowing fst">내가 링크한</a></li>
+				<li><a href="javascript:;" class="link_tab linkFollowers">나를 링크한</a></li>
+			</ul>
+		</div>
+		<strong class="screen_out">내가 링크한</strong>
+		<div id="followingLinkLayer"></div>
+		<div id="followersLinkLayer" class="hide"></div>
+	</div>
+</div>
+<div id="addLinkLayer" class="tistory_layer hide" style="top:130px">
+	<form id="addLinkForm" action="/m/link/add.json">
+		<input type="hidden" name="linkBlogId" value="921615">
+		<div class="inner_tistory_layer">
+			<div class="layer_head">
+				<strong class="">링크추가</strong>
+			</div>
+			<div class="layer_body">
+				<p class="txt_add"><em class="txt_emph">All about Korean kite</em>블로그를<br> 링크에 추가하시겠습니까?</p>
+				<div class="opt_comm">
+					<select id="addLinkBlogSelector" name="blogId" class="opt_select" style="width:136px">
+											</select>
+					<span class="img_comm"></span>
+				</div>
+				<div class="opt_comm">
+					<select id="addLinkBlogGroupSelector" name="groupId" class="opt_select" style="width:96px"></select>
+					<span class="img_comm"></span>
+				</div>
+			</div>
+			<div class="layer_foot">
+				<div class="wrap_btn">
+					<button type="button" onclick="T.m.my.addLink(); return false;" class="btn_layer btn_conform">확인</button>
+					<a href="javascript:;" onclick="T.m.my.hideAddLinkLayer(); return false;" class="btn_layer btn_cancel">취소</a>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+	</div>
+	<div id="adamHeader"></div>
+			<div id="daumHead" class="has_sub">
+						<div id="header">
+				<h1><a href="/m" id="blogTitle">All about Korean kite</a></h1>
+			</div>
+			<div id="menu">
+								<ul class="blog_menu menu_count_4">
+																																									<li class="on">
+							<a class="fst" href="/m/post"><span class="menu_label">글목록</span></a>
+						</li>
+																																									<li>
+							<a href="/m/profile"><span class="menu_label">프로필</span></a>
+						</li>
+																																									<li>
+							<a href="/m/comment"><span class="menu_label">댓글</span></a>
+						</li>
+																																									<li>
+							<a class="lst" href="/m/guestbook"><span class="menu_label">방명록</span></a>
+						</li>
+									</ul>
+			</div>
+					<div id="promotionApp2014">
+				<a class="promotion_never_show" href="javascript:;"><span class="txt_hide">다시안보기</span></a>
+				<a class="promotion_join" href="http://www.tistory.com/promotion/app2014"><span class="txt_hide">참여하기</span></a>
+			</div>
+				</div>
+		<hr>
+							<div id="headerContent">
+				
+				
+			</div>
+			
+	<div id="daumContent" class="list_type_dlip">
+		<div class="wrap_selectCategory">
+			<select class="full_size_select" onchange="T.m.blog.selectCategory(this.value);">
+							<option value="0">View All</option>
+											<option value="429541">How to make Bangpae</option>
+											<option value="587952">Bang'Pae Science</option>
+											<option value="429543">Movie on flying</option>
+											<option value="447093">Devoted contributor</option>
+											<option value="449577">Fighting masters</option>
+											<option value="587951">Collections</option>
+											<option value="588246" selected="selected">Old documents</option>
+											<option value="586015">Local Patterns</option>
+											<option value="429542">Foreign masters</option>
+											<option value="447077">Behind story</option>
+											<option value="450241">Memorial hall</option>
+											<option value="496307">Mental food (private)</option>
+											<option value="587967">Korean song</option>
+										</select>
+		</div>
+
+		<ul id="articleList">
+												
+				<li class="fst">
+							<a class="wrap_post_anchor" title="KOREAN GAMES by Stewart Culin,1895" href="http://koreankite.tistory.com/m/post/141">
+			
+											<div class="thumb">
+					<img src="http://i1.daumcdn.net/thumb/C70x70/?fname=http%3A%2F%2Fcfile27.uf.tistory.com%2Fimage%2F2151DB3754C2F9982FB66A" width="70" alt="KOREAN GAMES by Stewart Culin,1895">
+				</div>
+								<div class="cont">
+					<strong>KOREAN GAMES by Stewart Culin,1895</strong>
+										<span class="owner_info">
+						대한연협회 Peter, Nam						<span class="datetime">2015/01/24 10:58</span>
+					</span>
+					<p class="summary">[KOREAN GAMES WITH NOTES ON THE CORRES..</p>
+				</div>
+				
+							</a>
+					</li>
+						
+				<li>
+							<a class="wrap_post_anchor" title="The Survey of Korean Kites - 14 pics." href="http://koreankite.tistory.com/m/post/137">
+			
+											<div class="thumb">
+					<img src="http://i1.daumcdn.net/thumb/C70x70/?fname=http%3A%2F%2Fcfile24.uf.tistory.com%2Fimage%2F273FA54754B315BD18E6B8" width="70" alt="The Survey of Korean Kites - 14 pics.">
+				</div>
+								<div class="cont">
+					<strong>The Survey of Korean Kites - 14 pics.</strong>
+										<span class="owner_info">
+						대한연협회 Peter, Nam						<span class="datetime">2015/01/12 09:34</span>
+					</span>
+					<p class="summary"></p>
+				</div>
+				
+							</a>
+					</li>
+						
+				<li>
+							<a class="wrap_post_anchor" title="Lee,Dam-Joo, Dong-Ah iLBo, 1972.5.2" href="http://koreankite.tistory.com/m/post/129">
+			
+											<div class="thumb">
+					<img src="http://i1.daumcdn.net/thumb/C70x70/?fname=http%3A%2F%2Fcfile10.uf.tistory.com%2Fimage%2F246C294A54994FEE1D4E86" width="70" alt="Lee,Dam-Joo, Dong-Ah iLBo, 1972.5.2">
+				</div>
+								<div class="cont">
+					<strong>Lee,Dam-Joo, Dong-Ah iLBo, 1972.5.2</strong>
+										<span class="owner_info">
+						대한연협회 Peter, Nam						<span class="datetime">2014/12/23 20:28</span>
+					</span>
+					<p class="summary">Lee,Dam-Joo had worked for Museum curator of ..</p>
+				</div>
+				
+							</a>
+					</li>
+						
+				<li>
+							<a class="wrap_post_anchor" title="Lee, Dam-Joo, [Research on Korean paper kite],1975" href="http://koreankite.tistory.com/m/post/128">
+			
+											<div class="thumb">
+					<img src="http://i1.daumcdn.net/thumb/C70x70/?fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F2457BD4A54994ECD31A965" width="70" alt="Lee, Dam-Joo, [Research on Korean paper kite],1975">
+				</div>
+								<div class="cont">
+					<strong>Lee, Dam-Joo, [Research on Korean paper kite],1975</strong>
+										<span class="owner_info">
+						대한연협회 Peter, Nam						<span class="datetime">2014/12/23 20:17</span>
+					</span>
+					<p class="summary"></p>
+				</div>
+				
+							</a>
+					</li>
+						
+				<li>
+							<a class="wrap_post_anchor" title="Kite Name by Lee,Jung-Hwa pattern classification" href="http://koreankite.tistory.com/m/post/126">
+			
+											<div class="thumb">
+					<img src="http://i1.daumcdn.net/thumb/C70x70/?fname=http%3A%2F%2Fcfile1.uf.tistory.com%2Fimage%2F26492D405498700032AB3F" width="70" alt="Kite Name by Lee,Jung-Hwa pattern classification">
+				</div>
+								<div class="cont">
+					<strong>Kite Name by Lee,Jung-Hwa pattern classification</strong>
+										<span class="owner_info">
+						대한연협회 Peter, Nam						<span class="datetime">2014/12/23 01:53</span>
+					</span>
+					<p class="summary"></p>
+				</div>
+				
+							</a>
+					</li>
+						
+				<li>
+							<a class="wrap_post_anchor" title="Lee,Jung-Hwa(朝鮮語學會1881~?), 연의 종류와 용어, 1938" href="http://koreankite.tistory.com/m/post/121">
+			
+											<div class="thumb">
+					<img src="http://i1.daumcdn.net/thumb/C70x70/?fname=http%3A%2F%2Fcfile5.uf.tistory.com%2Fimage%2F276DC23E549EB94A2931FD" width="70" alt="Lee,Jung-Hwa(朝鮮語學會1881~?), 연의 종류와 용어, 1938">
+				</div>
+								<div class="cont">
+					<strong>Lee,Jung-Hwa(朝鮮語學會1881~?), 연의 종류와 용어, 1938</strong>
+										<span class="owner_info">
+						대한연협회 Peter, Nam						<span class="datetime">2014/12/05 06:59</span>
+					</span>
+					<p class="summary">Source : http://www.dibrary.net/search/dibrary/..</p>
+				</div>
+				
+							</a>
+					</li>
+						
+				<li>
+							<a class="wrap_post_anchor" title="Corea or Cho-Sen, A. HENRY SAVAGE-LANDOR, 1895" href="http://koreankite.tistory.com/m/post/120">
+			
+											<div class="thumb">
+					<img src="http://i1.daumcdn.net/thumb/C70x70/?fname=http%3A%2F%2Fcfile3.uf.tistory.com%2Fimage%2F247AB34B5480987009FF47" width="70" alt="Corea or Cho-Sen, A. HENRY SAVAGE-LANDOR, 1895">
+				</div>
+								<div class="cont">
+					<strong>Corea or Cho-Sen, A. HENRY SAVAGE-LANDOR, 1895</strong>
+										<span class="owner_info">
+						대한연협회 Peter, Nam						<span class="datetime">2014/12/04 03:10</span>
+					</span>
+					<p class="summary">http://www.gutenberg.org/files/13128/13128-h/13..</p>
+				</div>
+				
+							</a>
+					</li>
+						
+				<li>
+							<a class="wrap_post_anchor" title="Pastimes in Corea, 1894" href="http://koreankite.tistory.com/m/post/119">
+			
+											<div class="thumb">
+					<img src="http://i1.daumcdn.net/thumb/C70x70/?fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F247A1E4E547F4A86179D28" width="70" alt="Pastimes in Corea, 1894">
+				</div>
+								<div class="cont">
+					<strong>Pastimes in Corea, 1894</strong>
+										<span class="owner_info">
+						대한연협회 Peter, Nam						<span class="datetime">2014/12/04 02:39</span>
+					</span>
+					<p class="summary">Source : http://paperspast.natlib.govt.nz/cgi-bin..</p>
+				</div>
+				
+							</a>
+					</li>
+						
+				<li class="lst">
+							<a class="wrap_post_anchor" title="1894 Chicago Exposition, COREAN EXHIBITS." href="http://koreankite.tistory.com/m/post/112">
+			
+											<div class="thumb">
+					<img src="http://i1.daumcdn.net/thumb/C70x70/?fname=http%3A%2F%2Fcfile9.uf.tistory.com%2Fimage%2F222C4247548007542E245B" width="70" alt="1894 Chicago Exposition, COREAN EXHIBITS.">
+				</div>
+								<div class="cont">
+					<strong>1894 Chicago Exposition, COREAN EXHIBITS.</strong>
+										<span class="owner_info">
+						대한연협회 Peter, Nam						<span class="datetime">2014/12/03 11:46</span>
+					</span>
+					<p class="summary">Source : http://www.nature.com/scientificameric..</p>
+				</div>
+				
+							</a>
+					</li>
+			</ul>
+
+				
+					
+<div id="pagingNav">
+												<em class="em_color_bg" title="현재 페이지"><span>1</span></em>
+								</div>			</div>
+
+	<hr>
+
+	<div id="paddingLine"></div>
+
+	<div id="footerContent">
+	
+	
+</div>
+
+				
+		<div class="search_tistory">
+	<form id="searchBar" method="get" action="/m/search" onsubmit="return T.m.blog.checkSrchForm(this)">
+		<fieldset>
+			<legend class="screen_out">검색사항을 입력후 검색해주세요.</legend>
+			<div class="box_search">
+				<input title="검색어 입력" type="text" id="search" class="inp_text" placeholder="이 블로그 글 검색" name="keyword" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeyup="T.m.blog.checkKeyValue('search', 'tistoryBtnClear')" onkeydown="T.m.blog.checkKeyValue('search', 'tistoryBtnClear')" onfocus="T.m.blog.checkKeyValue('search', 'tistoryBtnClear')">
+				<button class="btn_search" type="submit"><span class="inner">검색</span></button>
+				<span id="tistoryBtnClear" class="tistory_clear_btn" style="display: none" onclick="T.m.blog.clearKeyValue('search', 'tistoryBtnClear')"></span>
+			</div>
+		</fieldset>
+	</form>
+</div>		
+		
+	
+<div id="hottrendsContainer"></div>
+<div id="adamFooter"></div>
+<div id="footContent" class="foot_content" data-isdaumapp="false"></div>	<div id="daumFoot">
+		<ul>
+			<li><a href="http://m.daum.net/">Daum</a></li>
+			<li><a href="http://www.tistory.com/m" class="btn_tistory btn_check_upload">티스토리</a></li>
+			<li id="daumMinidaum"></li>
+			<li><a href="/" onclick="T.m.blog.goPcPage(this.href, window.location.hostname); return false" id="goPC" class="pc btn_check_upload">PC화면</a></li>
+		</ul>
+		<address>ⓒ Kakao Corp.</address>
+	</div>
+	<hr>
+	<div id="daumSearchBack"></div>
+	<div id="daumTotalSearchLayer" class="wrap_schall hide">
+		<div class="d_schall">
+			<form id="daumTotalSearchForm" class="inner_schall" action="http://www.tistory.com/m/search" method="get">
+				<fieldset>
+					<legend class="screen_out">검색어 입력폼</legend>
+					<div class="box_search">
+						<input type="search" id="q" name="keyword" class="tf_keyword">
+						<button id="btn_reset_totalsearch" type="button" class="btn_sch btn_reset"><span class="img_g ico_del">검색어 지우기</span></button>
+						<button type="submit" id="btn_search_totalsearch" class="btn_search">검색</button>
+						<button type="button" id="btn_close_totalsearch" class="btn_close">취소</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<div id="suggest_layer" class="suggest-layer-holder d_sgt"></div>
+	</div>
+</div>
+<input id="ttUAinfoValue" type="hidden" value="{&quot;app&quot;:{&quot;isApp&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;version&quot;:&quot;&quot;},&quot;browser&quot;:{&quot;name&quot;:&quot;none&quot;,&quot;version&quot;:&quot;0&quot;,&quot;major&quot;:&quot;0&quot;,&quot;minor&quot;:&quot;0&quot;,&quot;patch&quot;:&quot;0&quot;},&quot;os&quot;:{&quot;name&quot;:&quot;unknown&quot;,&quot;version&quot;:&quot;0&quot;,&quot;major&quot;:&quot;0&quot;,&quot;minor&quot;:&quot;0&quot;,&quot;patch&quot;:&quot;0&quot;,&quot;windows&quot;:false,&quot;android&quot;:false,&quot;ios&quot;:false,&quot;mac&quot;:false,&quot;linux&quot;:false,&quot;blackberry&quot;:false,&quot;bada&quot;:false,&quot;polaris&quot;:false,&quot;webos&quot;:false},&quot;platform&quot;:&quot;unknown&quot;,&quot;ua&quot;:&quot;ia_archiver&quot;,&quot;isDaumApp&quot;:false,&quot;isTistoryApp&quot;:false,&quot;isSafari&quot;:false,&quot;isIphone&quot;:false,&quot;isIpod&quot;:false,&quot;isIpad&quot;:false,&quot;isOpera&quot;:false,&quot;isDolfin&quot;:false,&quot;isAndroid&quot;:false,&quot;isBlackberry&quot;:false,&quot;isIos&quot;:false,&quot;isLinux&quot;:false,&quot;isMac&quot;:false,&quot;isWindows&quot;:false,&quot;isBada&quot;:false,&quot;isPolaris&quot;:false,&quot;isWebos&quot;:false,&quot;isPc&quot;:false,&quot;isMobile&quot;:false,&quot;isWebkit&quot;:false}" />
+<script type="text/javascript" src="http://dmaps.daum.net/map_js_init/plusmap.mobile.view.js"></script>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/suggest/suggest-1.3.11.min.js"></script>
+<script type="text/javascript" src="//m1.daumcdn.net/svc/original/U03/cssjs/coco/coco-1.0.25.min.js"></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U0301/cssjs/JSON-js/fc535e9cc8/json2.min.js"></script>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/sizzle/sizzle-1.10.7.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/slide/slide-1.2.13.standalone.min.js"></script>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/userAgent/userAgent-1.0.14.min.js"></script>
+<script type="text/javascript" src="//m1.daumcdn.net/svc/original/U03/cssjs/socialshare/socialshare_standalone-1.7.6.min.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/T.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/T.util.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/T.m.blog.js"></script>
+<script type="text/javascript" src="http://dmaps.daum.net/map_js_init/plusmap.mobile.view.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/ext/transCoordinator.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/T.m.my.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/T.m.component.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/ext/handlebars-v1.3.0.runtime.min.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/templates/handlebars.helper.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/tistory-web-blog/1445393133/static/js/mobile/templates/handlebars.templates.js"></script>
+<script type="text/javascript" src="http://go.daum.net/bin/minidaum.cgi?minidaum_mobile=y&amp;js_url=minidaumMobile2011&amp;viewport=320&amp;tracker=off" charset="euc-kr"></script>
+<script type="text/javascript">
+	plusmap.load( function() {
+		var option = {}, padding = 0, contentArea = jQuery('#daumContent .area_content');
+		//현재 모바일 스킨의 본문 형태는 2가지만 존재
+		if(jQuery("#daumContent").hasClass("box_viewer")){
+			padding = 8;
+		} else {
+			padding = 24;
+		}
+		var width = contentArea.width() - padding;
+		if(width < 296){
+			option = {"width" : width};
+		}
+		plusmap.init(jQuery('.map_attach')).render(option);
+	});
+</script>
+<script type="text/javascript">
+	T.m.component.daumLike.init("hottrendsContainer");
+
+		footcontentType = "none";
+	
+	coco.configure = {
+
+		suggest: {
+			formEl: 'daumTotalSearchForm',
+			layerEl: 'daumTotalSearchLayer',
+			searchURL: 'http://www.tistory.com/m/search',
+			enableLatestKeyword : false,
+			suggestNumber: 10,
+		},
+
+		footcontent: {
+			id: "footContent",
+			type: footcontentType,
+			service: "tistory",
+			// for install
+			scheme: "tistoryapp://open",
+			intent: "intent://open#Intent;scheme=tistoryapp;package=net.daum.android.tistoryapp;end",
+			appName: "티스토리앱",
+			appId: "1",
+//			appImgUrl: "http://m1.daumcdn.net/svc/image/U03/common_icon/5379D8B60217A60005",
+			googleplay: "market://details?id=net.daum.android.tistoryapp",
+			appstore: "https://itunes.apple.com/app/id906304982?mt=8",
+			// for add homescreen
+			homeScreenName: "티스토리",
+			homeScreenImgUrl: "",
+			homeScreenService: "tistory"
+		}
+	};
+	coco.start();
+
+		function makeLogin() {
+		var loginBtn = jQuery('#daumMinidaum .minidaum_login')[0];
+		if(loginBtn){
+			loginBtn.href="http://www.tistory.com/m/auth/index?requestURI=http%3A%2F%2Fkoreankite.tistory.com%2Fm%2Fpost%3FcategoryId%3D588246";
+		} else {
+			setTimeout(makeLogin, 200);
+		}
+	}
+	makeLogin();
+		//]]>
+</script>
+<script type="text/javascript">
+	window.roosevelt_params_queue = window.roosevelt_params_queue || [];
+	window.roosevelt_params_queue.push({
+		channel_id: "dk", channel_label: "tistory.m"
+	});
+</script>
+<script type="text/javascript" src="//adimg.daumcdn.net/rt/dk_bt/roosevelt_dk_bt.js" async></script>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+	var _tiq = 'undefined' !== typeof _tiq ? _tiq : [];
+
+	_tiq.push(['__setSection', 'BLOG']);
+	_tiq.push(['__setPageName', 'Default']);
+	_tiq.push(['__setParam', 'puid', 1445532015636]);
+	_tiq.push(['__setParam', 'svcdomain', 'm.tistory.com']);
+	_tiq.push(['__trackPageview', {
+		svcdomain: 'm.tistory.com',
+		title: document.title,
+		referer: '',
+		category: '',
+		articleno: '',
+		plink: 'http://koreankite.tistory.com/',
+		date: '',
+		author: 'koreankite',
+		isauthor: 'N',
+		ishidden: '',
+		comments: '',
+		param1: '',
+		param2: 'e',
+		param3: 'N'
+			}]);
+	_tiq.push(['__clickOn']);
+
+	(function(d) {
+		var se = d.createElement('script'); se.type = 'text/javascript'; se.async = true;
+		se.src = '//m1.daumcdn.net/tiara/js/td.min.js?v=5206';
+		var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+	})(document);
+//]]>
+</script>
+</body>
+</html>
